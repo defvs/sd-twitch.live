@@ -1,0 +1,24 @@
+#top-content-container {
+	padding-top: 4%;
+	padding-bottom: 4%;
+
+	background-color: #4a148c;
+
+}
+
+#navbar {
+	background-color: #12005e;
+}
+
+#top-content {
+
+}
+
+html, body {
+	background-color: black;
+	height: 100%;
+}
+
+.tab-selected {
+	background-color: #7c43bd;
+}
