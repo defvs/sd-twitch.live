@@ -1,24 +1,28 @@
 #top-content-container {
 	padding-top: 4%;
 	padding-bottom: 4%;
-
-	background-color: #4a148c;
-
-}
-
-#navbar {
-	background-color: #12005e;
-}
-
-#top-content {
-
+	background-color: #003c8f;
 }
 
 html, body {
 	background-color: black;
-	height: 100%;
 }
 
-.tab-selected {
-	background-color: #7c43bd;
+#main-logo {
+	max-width: 60%;
+}
+
+#navbar {
+	background-color: #000051;
+}
+
+#navbar a {
+	color: white;
+}
+
+#navbar a.nav-link.active {
+	border-radius: 0 !important;
+	background-color: white;
+	color: black;
+	font-weight: bold;
 }
