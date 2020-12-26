@@ -14,6 +14,7 @@ html, body {
 
 #navbar {
 	background-color: #000051;
+	font-style: italic;
 }
 
 #navbar a {
@@ -25,4 +26,24 @@ html, body {
 	background-color: white;
 	color: black;
 	font-weight: bold;
+}
+
+#video-content-embed {
+	background-color: #1c1f20;
+}
+
+* {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 400;
+	/*font-style: italic;*/
+}
+
+.font-alt, h1, h2, h3, h4, h5, h6 {
+	font-style: normal;
+	font-weight: bold;
+}
+
+#main-title {
+	padding-top: 16px;
+	max-width: 80%;
 }
