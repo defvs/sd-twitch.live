@@ -4,7 +4,6 @@
     <list default="true" id="41479593-504f-453a-bd61-121aecc6bda3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +14,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Daniel THIRION &lt;defvs.daniel@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1m1WCPDNIvrKkZE4GiMqhA9FvSW" />
@@ -47,11 +51,23 @@
       <updated>1608661448569</updated>
       <workItem from="1608661450685" duration="8399000" />
       <workItem from="1608727534897" duration="4040000" />
-      <workItem from="1608985856732" duration="8846000" />
+      <workItem from="1608985856732" duration="10836000" />
     </task>
+    <task id="LOCAL-00001" summary="Finished main design">
+      <created>1608997143663</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608997143663</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finished main design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished main design" />
   </component>
 </project>
