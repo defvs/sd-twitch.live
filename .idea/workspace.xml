@@ -4,6 +4,7 @@
     <list default="true" id="41479593-504f-453a-bd61-121aecc6bda3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,8 @@
       <updated>1608661448569</updated>
       <workItem from="1608661450685" duration="8399000" />
       <workItem from="1608727534897" duration="4040000" />
-      <workItem from="1608985856732" duration="10836000" />
+      <workItem from="1608985856732" duration="10924000" />
+      <workItem from="1609080533259" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="Finished main design">
       <created>1608997143663</created>
@@ -60,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608997143663</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix button color and some other styling">
+      <created>1609000045691</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609000045691</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,6 +77,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished main design" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished main design" />
+    <MESSAGE value="Fix button color and some other styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix button color and some other styling" />
   </component>
 </project>
