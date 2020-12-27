@@ -1,3 +1,7 @@
+The following license applies only to the code in this repository. 
+Images and other assets are explicitly excluded and fall under: (c) copyright Social Distancing team
+
+Code in this repository fall under:
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
