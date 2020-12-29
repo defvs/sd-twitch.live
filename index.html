@@ -28,7 +28,7 @@
 	<title>SOCIAL DISTANCING</title>
 </head>
 
-<body class="text-light" data-bs-spy="scroll" data-bs-target="#main-nav" data-bs-offset="2" tabindex="0">
+<body class="text-light" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-method="auto" data-bs-offset="10" tabindex="0">
 <div id="top-content-container" class="container-fluid">
 	<div id="top-content" class="container">
 		<div class="row align-items-center">
@@ -60,11 +60,11 @@
 		</div>
 	</div>
 </div>
-<div id="navbar" class="sticky-top">
+<nav id="navbar" class="sticky-top">
 	<div class="container">
 		<ol class="nav nav-pills nav-fill" id="main-nav">
 			<li class="nav-item">
-				<a class="nav-link active" href="#section-about">About us</a>
+				<a class="nav-link" href="#section-about">About us</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#section-previous-events">Previous Events</a>
@@ -74,10 +74,10 @@
 			</li>
 		</ol>
 	</div>
-</div>
-<div class="container" id="main" style="padding-top: 64px">
-	<div>
-		<div class="row gy-4 align-items-center" id="section-about">
+</nav>
+<div class="container" id="main">
+	<div id="section-about" class="main-section">
+		<div class="row gy-4 align-items-center" >
 			<div class="col-md d-block">
 				<picture>
 					<source srcset="graphics/SD_Logo_Primary.webp">
@@ -109,13 +109,13 @@
 				Twitch.<br><br>
 			</p>
 			<span class="fs-4 fw-bold text-center">Have fun!</span>
-			<span class="fw-light text-muted text-center"><br>PS: Interested in participating on the content creator side? Or have any request? Hit us up on our
+			<span class="fw-light text-muted text-center"><br>PS: Interested in participating? Or have any request? Hit us up on our
 				<a href="https://discord.gg/62aa3T7YDK" class="link-secondary">discord server</a>!</span>
 		</div>
 		<p></p>
 	</div>
-	<div style="margin-top: 64px">
-		<h1 id="section-previous-events">Previous Events</h1>
+	<div id="section-previous-events" class="main-section">
+		<h1>Previous Events</h1>
 		<div style="margin-top: 32px;" class="row align-items-center justify-content-between gy-4">
 			<div class="col-md d-block">
 				<picture>
@@ -163,19 +163,19 @@
 			</div>
 		</div>
 	</div>
-	<div style="margin-top: 64px">
-		<h1 id="section-future-events">Future Events</h1>
+	<div id="section-future-events" class="main-section">
+		<h1>Future Events</h1>
 		<span class="fs-3 text-muted">Secret, secret... More info soon.</span>
 	</div>
 </div>
 <div id="footer">
 	<div class="container">
 		<div class="row align-items-end justify-content-between text-muted">
-			<div class="col-auto text-wrap" style="padding-top: 16px; padding-bottom: 8px">
-				Brought to you by <a class="link-secondary" href="https://twitch.tv/volumetrique">Volumetrique</a>.
+			<div class="col-auto text-wrap footer-text">
+				Website designed by <a class="link-secondary" href="https://twitch.tv/volumetrique">Volumetrique</a>.
 				Logo design by <a class="link-secondary" href="https://twitter.com/Ashe_Incendia">Ashe Incendia</a>
 			</div>
-			<div class="col-auto" style="padding-top: 16px; padding-bottom: 8px">
+			<div class="col-auto footer-text">
 				(c) 2020, Social Distancing team
 			</div>
 		</div>

@@ -11,9 +11,13 @@ html, body {
     background-color: #000a12;
 }
 
+body {
+    position: relative;
+}
+
 #main-logo {
     max-width: 60%;
-    height: calc(60%/2.39936908517);
+    height: calc(60% / 2.39936908517);
 }
 
 #navbar {
@@ -66,4 +70,22 @@ html, body {
 .btn-outline-dark:hover {
     background: black;
     border-color: white;
+}
+
+.footer-text {
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.main-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.main-section:first-child {
+    padding-top: 64px;
+}
+
+.main-section:not(:first-child) {
+    border-top: 1px solid white;
 }
