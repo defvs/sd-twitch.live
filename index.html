@@ -11,15 +11,15 @@
 		  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<link href="style.css" rel="stylesheet">
 	
-	<meta name="robots" content="index, follow" />
-	<meta property="robots" content="index, follow" />
+	<meta name="robots" content="index, follow"/>
+	<meta property="robots" content="index, follow"/>
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://sd-twitch.live/">
-	<meta property="og:title" content="SOCIAL DISTANCING • Live DJ Events">
+	<meta property="og:title" content="SOCIAL DISTANCING - Live DJ Events">
 	<meta property="og:description" content="We are organizing live DJ events and marathons live on Twitch.">
 	<meta property="og:image" content="https://sd-twitch.live/graphics/SD_Logo_Primary.png">
 	
@@ -38,12 +38,18 @@
 	<div id="top-content" class="container">
 		<div class="row align-items-center">
 			<div id="video-content-embed" class="col-md ratio ratio-16x9 order-1 gy-4 d-flex align-items-center justify-content-center">
+				<a class="w-100 h-100 d-block" href="#section-future-events">
+					<picture>
+						<source srcset="graphics/french-nights-1-hor.webp">
+						<img src="graphics/french-nights-1-hor.png" class="w-100 h-100 d-block">
+					</picture>
+				</a>
 			</div>
 			<div id="main-headline-container" class="col-md d-block gy-2">
 				<picture>
 					<source srcset="graphics/SD_Logo_Primary.webp">
 					<img src="graphics/SD_Logo_Primary.png" class="img-fluid mx-auto d-block" id="main-logo"
-						 alt="Social Distancing Logo">
+						 alt="Social Distancing">
 				</picture>
 				<h1 id="main-title" class="mx-auto font-alt fw-bold text-center">DJ Marathon & LIVE Events</h1>
 				<div class="row" style="margin-top: 24px">
@@ -66,24 +72,40 @@
 	<div class="container">
 		<ol class="nav nav-pills nav-fill" id="main-nav">
 			<li class="nav-item">
+				<a class="nav-link" href="#section-future-events">Future Events</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="#section-about">About us</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#section-previous-events">Previous Events</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section-future-events">Future Events</a>
-			</li>
 		</ol>
 	</div>
 </nav>
 <div class="container" id="main">
+	<div id="section-future-events" class="main-section">
+		<h1>Future Events</h1>
+		<div class="row align-items-center justify-content-between gy-4 event-row">
+			<div class="col-md d-block">
+				<picture>
+					<source srcset="graphics/french-nights-1.webp">
+					<img src="graphics/french-nights-1.png" loading="lazy" class="img-fluid d-block mx-auto" alt="French Nights 1 Poster">
+				</picture>
+			</div>
+			<div class="col-md">
+				<h2 class="text-center fw-bold font-alt">La French Night (Ed. 1)</h2>
+				<h4 class="text-muted text-center text-light">16th January 2021<br>8hrs / 4 Streamers</h4>
+				<h4 class="text-center text-light">French DJ Talents, live on Twitch, first edition!</h4>
+			</div>
+		</div>
+	</div>
 	<div id="section-about" class="main-section">
 		<div class="row gy-4 align-items-center">
 			<div class="col-md d-block">
 				<picture>
 					<source srcset="graphics/SD_Logo_Primary.webp">
-					<img src="graphics/SD_Logo_Primary.png" style="width: 80%;" class="img-fluid d-block mx-auto" alt="Social Distancing Logo">
+					<img src="graphics/SD_Logo_Primary.png" style="width: 80%;" class="img-fluid d-block mx-auto" alt="Social Distancing">
 				</picture>
 			</div>
 			<div class="col-md">
@@ -171,10 +193,6 @@
 			</div>
 		</div>
 	</div>
-	<div id="section-future-events" class="main-section">
-		<h1>Future Events</h1>
-		<span class="fs-3 text-muted">Secret, secret... More info soon.</span>
-	</div>
 </div>
 <div id="footer">
 	<div class="container">
@@ -194,10 +212,11 @@
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
 <script>
+	/*
 	document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("video-content-embed").innerHTML +=
 			`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL9K7OX3sXxWno4KU9gPPsuMDMwSHqj7mP&index=${Math.floor(Math.random() * 18)}&modestbranding=1" allowfullscreen></iframe>`
-	});
+	});*/
 </script>
 </body>
 

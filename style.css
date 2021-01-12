@@ -17,7 +17,6 @@ body {
 
 #main-logo {
     max-width: 60%;
-    height: calc(60% / 2.39936908517); /* Fix the height of the element to avoid content shift */
 }
 
 #navbar {
