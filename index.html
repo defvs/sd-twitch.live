@@ -68,7 +68,8 @@
 		</div>
 		
 		<div class="h1 text-center" style="margin-top: 32px; margin-bottom: 32px;">This week's event: La French Night (Ed.1)</div>
-		<div id="calcarousel" class="container-lg carousel slide" data-bs-ride="carousel" data-bs-interval="false" style="padding-bottom: 16px; display: none;">
+		<div id="calcarousel" class="container-lg carousel slide" data-bs-ride="carousel" data-bs-interval="false"
+			 style="padding-bottom: 16px; display: none;">
 			<ol class="carousel-indicators" id="calendar-indicators">
 			</ol>
 			<div class="carousel-inner" id="calendar-contents" style="margin-bottom: 32px;">
@@ -255,11 +256,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.4.0/ical.min.js"
 		integrity="sha512-4WiFjDu7uvt/4Yw48TE/yP5GqZE98yjsYiexx2UDCn8ZP145Uu0BexApj2mB1eHWX1u5DhZLN1jeHVPwwW+How==" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-		integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone-with-data-10-year-range.min.js"
-		integrity="sha512-slz1twJtg0JVoY34XV5nDu8vtwVuEnMnnJjNJx8gq/ZysGQ+NKM4UqGSzaGYeg0SftS2Hr0foXdeYNw7ELDrDQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.3/dayjs.min.js"
+		integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.3/plugin/calendar.min.js"
+		integrity="sha512-GGLsMoCJJUngLBCVN3OPW6Ay93fixYkCWvQZMgdcnSP+lUX5PBX2tIi0+16DnMn4aYX9NFE/ztaNlxHongfNag==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.3/plugin/relativeTime.min.js"
+		integrity="sha512-BQqXM2ye6+98YyRQzE676pY2Bc4d3o/fBNlBQyKv2J9oKwp9K/4BVqFWIJBx1zKlAJ8M0PIJR5Yp51FsnSUynQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.3/plugin/utc.min.js"
+		integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" crossorigin="anonymous"></script>
+
 <script>
+	dayjs.extend(window.dayjs_plugin_calendar);
+	dayjs.extend(window.dayjs_plugin_relativeTime);
+	dayjs.extend(window.dayjs_plugin_utc);
 	/*
 	document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("video-content-embed").innerHTML +=
@@ -294,12 +303,12 @@
 				.map(e => Object.assign(...e))
 				.map(e => objectMap(e, ee => ee[2]))
 				.map(e => {
-					e.dtstart = moment.utc(e.dtstart).local();
-					e.dtend = moment.utc(e.dtend).local();
+					e.dtstart = dayjs.utc(e.dtstart).valueOf();
+					e.dtend = dayjs.utc(e.dtend).valueOf();
 					return e
 				})
 				.filter(e => e.dtend > Date.now())
-				.sort((a, b) => a.dtstart > b.dtstart);
+				.sort((a, b) => a.dtstart - b.dtstart);
 			let first = jcal[0];
 			if (first.dtstart - 259200000 < Date.now()) {
 				let allEvent = jcal.filter(e => e.dtstart < first.dtstart + 259200000);
@@ -311,7 +320,7 @@
 						if (e.dtstart < Date.now() && e.dtend > Date.now()) {
 							$("#embed-as-poster").hide();
 							$("#video-content-embed").append(`<iframe style="height: 100%; width: 100%;" src="https://player.twitch.tv/?channel=sdistancing&parent=sd-twitch.live" />`)
-							
+
 							el.find(".calendar-countdown-section").hide();
 							el.find("calendar-live-text").text("Now LIVE");
 						} else {
@@ -325,8 +334,8 @@
 								el.find(".calendar-time").removeClass("text-muted", "h4").addClass("h2");
 								el.find(".calendar-countdown").hide();
 							}
-							el.find(".calendar-countdown").text("In " + e.dtstart.fromNow(true))
-							el.find(".calendar-time").text(e.dtstart.calendar())
+							el.find(".calendar-countdown").text("In " + dayjs.utc(e.dtstart).local().fromNow(true))
+							el.find(".calendar-time").text(dayjs.utc(e.dtstart).local().calendar())
 						}
 
 						let indicator_el = $(carouselIndicator).appendTo("#calendar-indicators");
