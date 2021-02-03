@@ -80,9 +80,9 @@ body {
     padding-bottom: 32px;
 }
 
-.main-section:first-child {
+/*.main-section:first-child {
     padding-top: 64px;
-}
+}*/
 
 .main-section:not(:first-child) {
     border-top: 1px solid white;

@@ -40,8 +40,8 @@
 			<div id="video-content-embed" class="col-lg ratio ratio-16x9 order-1 gy-4 d-flex align-items-center justify-content-center">
 				<a class="w-100 h-100 d-block" href="#section-future-events" id="embed-as-poster">
 					<picture>
-						<source srcset="graphics/distanced-nights-1-hor.webp">
-						<img src="graphics/distanced-nights-1-hor.png" class="w-100 h-100 d-block">
+						<source srcset="graphics/dubxhard-hor.webp">
+						<img src="graphics/dubxhard-hor.png" class="w-100 h-100 d-block">
 					</picture>
 				</a>
 			</div>
@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		
-		<div class="h1 text-center" style="margin-top: 32px; padding-bottom: 32px; margin-bottom: 0;">This week's event: Distanced Nights (Ed.1)</div>
+		<div class="h1 text-center" style="margin-top: 32px; padding-bottom: 32px; margin-bottom: 0;">This week's event: Dubstep x Hardcore Party</div>
 		<div id="calcarousel" class="container-lg carousel slide" data-bs-ride="carousel" data-bs-interval="false"
 			 style="padding-bottom: 16px; display: none;">
 			<ol class="carousel-indicators" id="calendar-indicators">
@@ -106,15 +106,15 @@
 		<div class="row align-items-center justify-content-between gy-4 event-row">
 			<div class="col-md d-block">
 				<picture>
-					<source srcset="graphics/distanced-nights-1.webp">
-					<img src="graphics/distanced-nights-1.png" loading="lazy" class="img-fluid d-block mx-auto" alt="Distanced Nights 1 Poster">
+					<source srcset="graphics/dubxhard.webp">
+					<img src="graphics/dubxhard.png" loading="lazy" class="img-fluid d-block mx-auto" alt="Social Distancing Dubstep x Hardcore poster">
 				</picture>
 			</div>
 			<div class="col-md">
-				<h2 class="text-center fw-bold font-alt">Distanced Nights (Ed. 1)</h2>
-				<h4 class="text-muted text-center text-light">23rd January 2021<br>21hrs / 10 Streamers</h4>
-				<h4 class="text-center text-light">Social Distancing is back, with weekly events!<br>Enjoy a fresh batch of great DJ livesets!</h4>
+				<h2 class="text-center fw-bold font-alt">Social Distancing Presents: Dubstep x Hardcore Party</h2>
+				<h4 class="text-muted text-center text-light">6th February 2021<br>16hrs / 8 Streamers</h4>
 				<div class="row justify-content-evenly" style="margin-top: 16px;">
+					<!--suppress HtmlUnknownTarget -->
 					<a class="col-auto btn btn-outline-dark text-white btn-lg d-block text-nowrap"
 					   href="https://twitch.tv/sdistancing"
 					   target="_blank"><img src="graphics/twitch.svg" alt=""> Watch on Twitch</a>
@@ -145,7 +145,7 @@
 				streamer.<br><br>
 				Our lineups are very diverse, with music genres ranging from Drum & Bass, Techno, Hardcore, and we even welcome live
 				producers!<br><br>
-				With events gathering hundreds of viewers, and spanning over multiple days non-stop, we've had multiple succesful events and plenty of
+				With events gathering hundreds of viewers, and spanning over multiple days non-stop, we've had multiple successful events and plenty of
 				fun.
 				Since one of our main goal is helping our streamer fellows, our inner working is a "raid-train": each streamer plays on his channel,
 				and raids
@@ -162,6 +162,19 @@
 	</div>
 	<div id="section-previous-events" class="main-section">
 		<h1>Previous Events</h1>
+		<div class="row align-items-center justify-content-between gy-4 event-row">
+			<div class="col-md d-block">
+				<picture>
+					<source srcset="graphics/distanced-nights-1.webp">
+					<img src="graphics/distanced-nights-1.png" loading="lazy" class="img-fluid d-block mx-auto" alt="Distanced Nights 1 Poster">
+				</picture>
+			</div>
+			<div class="col-md">
+				<h2 class="text-center fw-bold font-alt">Distanced Nights (Ed. 1)</h2>
+				<h4 class="text-muted text-center text-light">23rd January 2021<br>21hrs / 10 Streamers</h4>
+				<h4 class="text-center text-light">Social Distancing is back, with weekly events!<br>Enjoy a fresh batch of great DJ livesets!</h4>
+			</div>
+		</div>
 		<div class="row align-items-center justify-content-between gy-4 event-row">
 			<div class="col-md d-block">
 				<picture>
@@ -262,8 +275,8 @@
 	dayjs.extend(window.dayjs_plugin_calendar);
 	dayjs.extend(window.dayjs_plugin_relativeTime);
 	dayjs.extend(window.dayjs_plugin_utc);
-	/*
-	document.addEventListener("DOMContentLoaded", function () {
+
+	/*document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("video-content-embed").innerHTML +=
 			`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL9K7OX3sXxWno4KU9gPPsuMDMwSHqj7mP&index=${Math.floor(Math.random() * 18)}&modestbranding=1" allowfullscreen></iframe>`
 	});*/
@@ -303,6 +316,7 @@
 				.filter(e => e.dtend > Date.now())
 				.sort((a, b) => a.dtstart - b.dtstart);
 			let first = jcal[0];
+			if (first === undefined) return;
 			if (first.dtstart - 259200000 < Date.now()) {
 				let allEvent = jcal.filter(e => e.dtstart < first.dtstart + 259200000);
 				if (allEvent.length !== 0) {
