@@ -40,8 +40,8 @@
 			<div id="video-content-embed" class="col-lg ratio ratio-16x9 order-1 gy-4 d-flex align-items-center justify-content-center">
 				<a class="w-100 h-100 d-block" href="#section-future-events" id="embed-as-poster">
 					<picture>
-						<!--<source srcset="graphics/sd4-poster.webp">-->
-						<img src="graphics/sd5-preposter.png" class="w-100 h-100 d-block" alt="">
+						<source srcset="graphics/sd5-poster.webp">
+						<img src="graphics/sd5-poster.png" class="w-100 h-100 d-block" alt="">
 					</picture>
 				</a>
 			</div>
@@ -108,7 +108,7 @@
 		<div class="row align-items-center justify-content-between gy-4 event-row">
 			<div class="col-md d-block">
 				<picture>
-					<img src="graphics/sd5-preposter.png" loading="lazy" class="img-fluid d-block mx-auto" alt="">
+					<img src="graphics/sd5-poster.png" loading="lazy" class="img-fluid d-block mx-auto" alt="">
 				</picture>
 			</div>
 			<div class="col-md">
@@ -336,11 +336,63 @@
 
 	const carouselIndicator = "<li data-bs-target=\"#calcarousel\" data-bs-slide-to=\"0\" class=\"carousel-indicator-el\"></li>"
 
+	let intervals = [];
+
+	function redrawCarousel(data) {
+		intervals.forEach((value) => {
+			clearInterval(value)
+		});
+		intervals = [];
+		$('#calendar-indicators').empty();
+		$('#calendar-contents').empty();
+
+		if (data.length !== 0) {
+			data.forEach((e, i) => {
+				let el = $(calendarTemplate).appendTo("#calendar-contents");
+				el.find(".calendar-streamer-name").text(e.summary);
+				el.find(".calendar-streamer-twitch").attr("href", "https://twitch.tv/" + e["x-teamup-twitch-username"]);
+				if (e.dtstart < Date.now() && e.dtend > Date.now()) {
+					$("#embed-as-poster").hide();
+					$("#video-content-embed").empty().append(`<iframe style="height: 100%; width: 100%;" src="https://player.twitch.tv/?channel=${e["x-teamup-twitch-username"]}&parent=sd-twitch.live" />`)
+
+					el.find(".calendar-countdown-section").hide();
+					el.find("calendar-live-text").text("Now LIVE");
+				} else {
+					if (data[0].dtstart < Date.now()) {
+						el.find(".live-blinker").hide();
+						el.find(".calendar-live-text").text("Next up");
+					} else {
+						el.find(".calendar-live-section").hide();
+					}
+					el.find(".calendar-countdown").text("In " + dayjs.utc(e.dtstart).local().fromNow(true))
+					el.find(".calendar-time").text(dayjs.utc(e.dtstart).local().calendar())
+					intervals.push(setInterval(() => {
+						el.find(".calendar-countdown").text("In " + dayjs.utc(e.dtstart).local().fromNow(true))
+						el.find(".calendar-time").text(dayjs.utc(e.dtstart).local().calendar())
+					}, 60000));
+				}
+
+				let indicator_el = $(carouselIndicator).appendTo("#calendar-indicators");
+				indicator_el.attr("data-bs-slide-to", i);
+				if (i === 0) {
+					el.addClass("active")
+					indicator_el.addClass("active")
+				}
+			})
+			$("#calcarousel").show();
+			if (data[0].dtstart > Date.now())
+				setTimeout(() => redrawCarousel(data), data[0].dtstart - Date.now());
+			else
+				setTimeout(() => redrawCarousel(data), data[1].dtend - Date.now());
+
+		}
+	}
+
 	$.ajax({
 		url: "live-calendar/calendarcache.php",
 		context: document.body,
 		success: function (data) {
-			let jcal = ICAL.parse(data)[2]
+			let allEvent = ICAL.parse(data)[2]
 				.filter(e => e[0] === "vevent")
 				.map(e => e.filter(ee => (Array.isArray(ee) && ee.length !== 0)))
 				.flatMap(e => e.map(ee => ee.filter(eee => ["dtstart", "dtend", "summary", "x-teamup-twitch-username"].includes(eee[0]))))
@@ -358,52 +410,12 @@
 				})
 				.filter(e => e.dtend > Date.now())
 				.sort((a, b) => a.dtstart - b.dtstart);
-			let first = jcal[0];
-			if (first === undefined) {
-				document.getElementById("video-content-embed").innerHTML +=
-					`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL9K7OX3sXxWno4KU9gPPsuMDMwSHqj7mP&index=${Math.floor(Math.random() * 18)}&modestbranding=1" allowfullscreen></iframe>`
-			}
-			if (first.dtstart - 259200000 < Date.now()) {
-				let allEvent = jcal.filter(e => e.dtstart < first.dtstart + 259200000);
-				if (allEvent.length !== 0) {
-					allEvent.forEach((e, i) => {
-						let el = $(calendarTemplate).appendTo("#calendar-contents");
-						el.find(".calendar-streamer-name").text(e.summary);
-						el.find(".calendar-streamer-twitch").attr("href", "https://twitch.tv/" + e["x-teamup-twitch-username"]);
-						if (e.dtstart < Date.now() && e.dtend > Date.now()) {
-							$("#embed-as-poster").hide();
-							$("#video-content-embed").append(`<iframe style="height: 100%; width: 100%;" src="https://player.twitch.tv/?channel=sdistancing&parent=sd-twitch.live" />`)
 
-							el.find(".calendar-countdown-section").hide();
-							el.find("calendar-live-text").text("Now LIVE");
-						} else {
-							if (allEvent[0].dtstart < Date.now()) {
-								el.find(".live-blinker").hide();
-								el.find(".calendar-live-text").text("Next up");
-							} else {
-								el.find(".calendar-live-section").hide();
-							}
-							if (e.dtstart - 79199999 > Date.now()) {
-								el.find(".calendar-time").removeClass("text-muted", "h4").addClass("h2");
-								el.find(".calendar-countdown").hide();
-							}
-							el.find(".calendar-countdown").text("In " + dayjs.utc(e.dtstart).local().fromNow(true))
-							el.find(".calendar-time").text(dayjs.utc(e.dtstart).local().calendar())
-						}
-
-						let indicator_el = $(carouselIndicator).appendTo("#calendar-indicators");
-						indicator_el.attr("data-bs-slide-to", i);
-						if (i === 0) {
-							el.addClass("active")
-							indicator_el.addClass("active")
-						}
-					})
-					$("#calcarousel").show();
-				}
-			}
+			redrawCarousel(allEvent);
 		}
 	});
 </script>
+
 </body>
 
 </html>
