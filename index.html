@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		
-		<div class="h1 text-center" style="margin-top: 32px; padding-bottom: 32px; margin-bottom: 0;">SOCIAL DISTANCING 5 - 1 year of Social
+		<div class="h1 text-center" style="margin-top: 32px; padding-bottom: 32px; margin-bottom: 0;">THANK YOU FOR 1 Year of Social
 			Distancing!
 		</div>
 		<div id="calcarousel" class="container-lg carousel slide" data-bs-ride="carousel" data-bs-interval="false"
@@ -108,24 +108,6 @@
 		<div class="row align-items-center justify-content-between gy-4 event-row">
 			<div class="col-md d-block">
 				<picture>
-					<img src="graphics/sd5-poster.png" loading="lazy" class="img-fluid d-block mx-auto" alt="">
-				</picture>
-			</div>
-			<div class="col-md">
-				<h2 class="text-center fw-bold font-alt">Social Distancing 5</h2>
-				<h3 class="text-center fw-bold font-alt">Celebrating our 1st year anniversary</h3>
-				<h4 class="text-muted text-center text-light">19th-20th-21st March 2020<br>Over 70 hours of Live DJing</h4>
-				<div class="row justify-content-evenly" style="margin-top: 16px;">
-					<!--suppress HtmlUnknownTarget -->
-					<a class="col-auto btn btn-outline-dark text-white btn-lg d-block text-nowrap"
-					   href="https://twitch.tv/sdistancing"
-					   target="_blank"><img src="graphics/twitch.svg" alt=""> Watch on Twitch</a>
-				</div>
-			</div>
-		</div>
-		<div class="row align-items-center justify-content-between gy-4 event-row">
-			<div class="col-md d-block">
-				<picture>
 					<img src="graphics/megamix01-thumbnail.png" loading="lazy" class="img-fluid d-block mx-auto" alt="">
 				</picture>
 			</div>
@@ -135,11 +117,8 @@
 				<h4 class="text-muted text-center text-light">PREMIERE: 19th March 9PM (GMT), during SD5<br>17 DJs for 3 hours of mix!</h4>
 				<div class="row justify-content-evenly" style="margin-top: 16px;">
 					<a class="col-auto btn btn-outline-dark text-white btn-lg d-block text-nowrap"
-					   href="https://twitch.tv/sdistancing"
-					   target="_blank"><img src="graphics/twitch.svg" alt=""> See the premiere on Twitch</a>
-					<a class="col-auto btn btn-outline-dark text-white btn-lg d-block text-nowrap"
-					   href="https://www.youtube.com/watch?v=KBQ9nq6I2hU"
-					   target="_blank">Or on Youtube</a>
+					   href="https://www.youtube.com/watch?v=TfimGJ0VcKw"
+					   target="_blank">Watch on YT</a>
 				</div>
 			</div>
 		</div>
@@ -185,6 +164,18 @@
 	</div>
 	<div id="section-previous-events" class="main-section">
 		<h1>Previous Events</h1>
+		<div class="row align-items-center justify-content-between gy-4 event-row">
+			<div class="col-md d-block">
+				<picture>
+					<img src="graphics/sd5-poster.png" loading="lazy" class="img-fluid d-block mx-auto" alt="">
+				</picture>
+			</div>
+			<div class="col-md">
+				<h2 class="text-center fw-bold font-alt">Social Distancing 5</h2>
+				<h3 class="text-center fw-bold font-alt">Celebrating our 1st year anniversary</h3>
+				<h4 class="text-muted text-center text-light">19th-20th-21st March 2020<br>70 hours</h4>
+			</div>
+		</div>
 		<div class="row align-items-center justify-content-between gy-4 event-row">
 			<div class="col-md d-block">
 				<picture>
@@ -321,6 +312,8 @@
 		integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" crossorigin="anonymous"></script>
 
 <script>
+	const yturl = "TfimGJ0VcKw";
+	
 	dayjs.extend(window.dayjs_plugin_calendar);
 	dayjs.extend(window.dayjs_plugin_relativeTime);
 	dayjs.extend(window.dayjs_plugin_utc);
@@ -385,6 +378,9 @@
 			else
 				setTimeout(() => redrawCarousel(data), data[1].dtend - Date.now());
 
+		} else {
+			$("#embed-as-poster").hide();
+			$("#video-content-embed").append(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${yturl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
 		}
 	}
 
